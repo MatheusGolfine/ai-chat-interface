@@ -130,7 +130,7 @@ export default function ChatPage() {
       {/* Left sidebar */}
       <div className="w-16 bg-white border-r flex flex-col items-center py-4">
         <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-6">
-          <span className="text-white font-bold">AI</span>
+          <span className="text-white font-bold">Jose</span>
         </div>
         <div className="flex flex-col gap-4 items-center">
           <Button
