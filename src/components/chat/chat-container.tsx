@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
 import { Message, MessageType } from "./message";
 
+import { ChatInput } from "./chat-input";
+import { useNavigate } from "react-router-dom";
 interface ChatContainerProps {
   messages: MessageType[];
   isProcessing: boolean;
@@ -8,6 +10,40 @@ interface ChatContainerProps {
 
 export function ChatContainer({ messages, isProcessing }: ChatContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  const handleSendMessage = async (message: string, option: string) => {
+    let endpoint = '';
+    switch (option) {
+      case 'materia':
+        endpoint = 'https://criadordigital-n8n-editor.zvjzjy.easypanel.host/webhook/9f0a09e0-a26f-4687-ac43-9b08c62d8c1a'; // Replace with your actual API endpoint for materia
+        break;
+      case 'avaliacao':
+        endpoint = '/api/bolo-avaliacao'; // Replace with your actual API endpoint for avaliacao
+        break;
+      case 'trilha':
+        endpoint = '/api/bolo-trilha'; // Replace with your actual API endpoint for trilha
+        break;
+      default:
+        console.error('Unknown option selected');
+        return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      });
+      const data = await response.json();
+      const encodedHtml = encodeURIComponent(data.message);
+      navigate(`/edit?content=${encodedHtml}`);
+    } catch (error) {
+      console.error('Error calling API:', error);
+    }
+  };
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {

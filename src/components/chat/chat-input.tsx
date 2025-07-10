@@ -6,7 +6,7 @@ import { useState, FormEvent, useRef, useEffect, MouseEvent } from "react";
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
   isProcessing: boolean;
- onApiResponse?: (responseMessage: string) => void;
+  onApiResponse?: (responseMessage: string) => void;
 }
 
 export function ChatInput({ onSendMessage, isProcessing }: ChatInputProps) {
@@ -18,7 +18,7 @@ export function ChatInput({ onSendMessage, isProcessing }: ChatInputProps) {
     let endpoint = '';
     switch (option) {
       case 'materia':
-        endpoint = '/api/bolo-material'; // Replace with your actual API endpoint for materia
+        endpoint = 'https://criadordigital-n8n-editor.zvjzjy.easypanel.host/webhook/9f0a09e0-a26f-4687-ac43-9b08c62d8c1a'; // Replace with your actual API endpoint for materia
         break;
       case 'avaliacao':
         endpoint = '/api/bolo-avaliacao'; // Replace with your actual API endpoint for avaliacao
