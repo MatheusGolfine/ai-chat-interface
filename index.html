@@ -12,6 +12,14 @@
   <meta property="og:description" content="A ChatGPT-like interface for your custom AI agent" />
   <meta property="og:type" content="website" />
 
+  <script>
+    // Lidar com redirecionamento do GitHub Pages para SPA
+    const urlParams = new URLSearchParams(window.location.search);
+    const path = urlParams.get('path');
+    if (path) {
+      window.history.replaceState({}, '', '/ai-chat-interface' + path);
+    }
+  </script>
   <script type="module" crossorigin src="/ai-chat-interface/assets/index-DTp9C80s.js"></script>
   <link rel="stylesheet" crossorigin href="/ai-chat-interface/assets/index-DYGNdCZX.css">
 </head>

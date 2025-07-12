@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Interface</title>
+    <script>
+        // Redireciona para index.html com o path preservado
+        const path = window.location.pathname.replace('/ai-chat-interface', '');
+        const search = window.location.search;
+        const redirect = '/ai-chat-interface/' + (path === '/' ? '' : '?path=' + encodeURIComponent(path) + search);
+        window.location.replace(redirect);
+    </script>
+</head>
+<body>
+    <div>Redirecionando...</div>
+</body>
+</html>
